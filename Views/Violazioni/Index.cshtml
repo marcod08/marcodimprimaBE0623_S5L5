@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container">
+    <h2>Elenco Violazioni</h2>
+    <table class="table table-info mt-3">
+        <thead>
+            <tr>
+                <th>Id Violazione</th>
+                <th>Descrizione</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var violazione in Model)
+            {
+                if (Model.IndexOf(violazione) % 2 == 0)
+                {
+                    <tr class="table-warning">
+                        <td>@violazione.IdViolazione</td>
+                        <td>@violazione.Descrizione</td>
+                    </tr>
+                }
+                else
+                {
+                    <tr class="table-info">
+                        <td>@violazione.IdViolazione</td>
+                        <td>@violazione.Descrizione</td>
+                    </tr>
+                }
+            }
+
+        </tbody>
+    </table>
+</div>
+

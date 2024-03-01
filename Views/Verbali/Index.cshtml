@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container">
+    <h2>Elenco Verbali</h2>
+    <table class="table table-info mt-3">
+        <thead>
+            <tr>
+                <th>Id Verbale</th>
+                <th>Id Violazione</th>
+                <th>Id Anagrafica</th>
+                <th>Data Violazione</th>
+                <th>Indirizzo</th>
+                <th>Agente</th>
+                <th>Data Trascrizione</th>
+                <th>Importo</th>
+                <th>Punti Decurtati</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var verbale in Model)
+            {
+                if (Model.IndexOf(verbale) % 2 == 0)
+                {
+                    <tr class="table-warning">
+                        <td>@verbale.IdVerbale</td>
+                        <td>@verbale.IdViolazione</td>
+                        <td>@verbale.IdAnagrafica</td>
+                        <td>@verbale.DataViolazione</td>
+                        <td>@verbale.IndirizzoViolazione</td>
+                        <td>@verbale.NominativoAgente</td>
+                        <td>@verbale.DataTrascrizioneVerbale</td>
+                        <td>@verbale.Importo.ToString("0.00")</td>
+                        <td>@verbale.DecurtamentoPunti</td>
+                    </tr>
+                }
+                else
+                {
+                    <tr class="table-info">
+                        <td>@verbale.IdVerbale</td>
+                        <td>@verbale.IdViolazione</td>
+                        <td>@verbale.IdAnagrafica</td>
+                        <td>@verbale.DataViolazione</td>
+                        <td>@verbale.IndirizzoViolazione</td>
+                        <td>@verbale.NominativoAgente</td>
+                        <td>@verbale.DataTrascrizioneVerbale</td>
+                        <td>@verbale.Importo.ToString("0.00")</td>
+                        <td>@verbale.DecurtamentoPunti</td>
+                    </tr>
+                }
+            }
+
+        </tbody>
+    </table>
+</div>

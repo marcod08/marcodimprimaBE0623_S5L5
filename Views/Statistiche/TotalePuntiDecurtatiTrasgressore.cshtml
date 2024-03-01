@@ -1,0 +1,38 @@
+﻿@model List<TotalePuntiDecurtatiTrasgressore>
+
+@{
+    ViewData["Title"] = "Totale Punti Decurtati per Trasgressore";
+}
+
+<div class="container">
+    <h2>Totale dei punti decurtati per trasgressore</h2>
+    <table class="table table-info mt-3">
+        <thead>
+            <tr>
+                <th>Id Anagrafica</th>
+                <th>Totale Punti Decurtati</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var verbale in Model)
+            {
+                if (Model.IndexOf(verbale) % 2 == 0) 
+                {
+                    <tr class="table-warning">
+                        <td>@verbale.IdAnagrafica</td>
+                        <td>@verbale.TotalePuntiDecurtati</td>
+                    </tr>
+                }
+                else 
+                {
+                    <tr class="table-info">
+                        <td>@verbale.IdAnagrafica</td>
+                        <td>@verbale.TotalePuntiDecurtati</td>
+                    </tr>
+                }
+            }
+
+        </tbody>
+    </table>
+</div>

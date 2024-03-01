@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container">
+    <h2>Elenco Anagrafiche</h2>
+    <table class="table table-info mt-3">
+        <thead>
+            <tr>
+                <th>Id Anagrafica</th>
+                <th>Cognome</th>
+                <th>Nome</th>
+                <th>Indirizzo</th>
+                <th>Città</th>
+                <th>Cap</th>
+                <th>Codice Fiscale</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var anagrafica in Model)
+            {
+                if (Model.IndexOf(anagrafica) % 2 == 0)
+                {
+                    <tr class="table-warning">
+                        <td>@anagrafica.IdAnagrafica</td>
+                        <td>@anagrafica.Cognome</td>
+                        <td>@anagrafica.Nome</td>
+                        <td>@anagrafica.Indirizzo</td>
+                        <td>@anagrafica.Città</td>
+                        <td>@anagrafica.CAP</td>
+                        <td>@anagrafica.CodFisc</td>
+                    </tr>
+                }
+                else
+                {
+                    <tr class="table-info">
+                        <td>@anagrafica.IdAnagrafica</td>
+                        <td>@anagrafica.Cognome</td>
+                        <td>@anagrafica.Nome</td>
+                        <td>@anagrafica.Indirizzo</td>
+                        <td>@anagrafica.Città</td>
+                        <td>@anagrafica.CAP</td>
+                        <td>@anagrafica.CodFisc</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

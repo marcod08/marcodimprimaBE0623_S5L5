@@ -1,0 +1,44 @@
+﻿@model List<ViolazionePuntiAlta>
+
+@{
+    ViewData["Title"] = "Violazioni con punti alti";
+}
+
+<div class="container">
+    <h2>Violazioni che superano i 10 punti</h2>
+    <table class="table table-info mt-3">
+        <thead>
+            <tr>
+                <th>Id Verbale</th>
+                <th>Importo</th>
+                <th>Data Violazione</th>
+                <th>Decurtamento Punti</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            @foreach (var verbale in Model)
+            {
+                if (Model.IndexOf(verbale) % 2 == 0)
+                {
+                    <tr class="table-warning">
+                        <td>@verbale.IdAnagrafica</td>
+                        <td>@verbale.Importo.ToString("0.00")</td>
+                        <td>@verbale.DataViolazione</td>
+                        <td>@verbale.DecurtamentoPunti</td>
+                    </tr>
+                }
+                else
+                {
+                    <tr class="table-info">
+                        <td>@verbale.IdAnagrafica</td>
+                        <td>@verbale.Importo.ToString("0.00")</td>
+                        <td>@verbale.DataViolazione</td>
+                        <td>@verbale.DecurtamentoPunti</td>
+                    </tr>
+                }
+            }
+
+        </tbody>
+    </table>
+</div>
